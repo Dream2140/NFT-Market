@@ -1,7 +1,7 @@
 :root {
     --background: #2B2B2B;
     --background-secondary: #3B3B3B;
-    --text: #FFFFFF;
+    --text-color-white: #FFFFFF;
     --action-color: #A259FF;
     --text__space-mono: 'Space Mono', monospace;
     --text__work-sans: 'Work Sans', sans-serif;
@@ -52,7 +52,7 @@ body {
     margin: 0;
     font-family: var(--text__work-sans);
     font-weight: 600;
-    color: var(--text);
+    color: var(--text-color-white);
     background-color: var(--background);
 }
 
@@ -202,7 +202,7 @@ a {
     height: 2px;
     background-color: #fff;
     border-radius: 5px;
-    -webkit-transform: rotate(180deg);
+    --webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
 }
@@ -229,12 +229,12 @@ a {
 }
 
 .btn--white {
-    background-color: #FFFFFF;
+    background-color: var(--text-color-white);
     color: var(--background);
 }
 
 .btn__icon {
-    fill: #FFFFFF;
+    fill: var(--text-color-white);
     width: 20px;
     height: 20px;
     margin-right: 10px;
@@ -357,7 +357,6 @@ a {
     -webkit-transition: -webkit-transform .5s ease 0s;
     -o-transition: transform .5s ease 0s;
     transition: transform .5s ease 0s;
-    transition: transform .5s ease 0s, -webkit-transform .5s
 }
 
 .gallery__item:hover img {
@@ -388,10 +387,8 @@ a {
 .gallery__item img {
     position: absolute;
     -webkit-transition: -webkit-transform .5s ease 0s;
-    transition: -webkit-transform .5s ease 0s;
     -o-transition: transform .5s ease 0s;
     transition: transform .5s ease 0s;
-    transition: transform .5s ease 0s, -webkit-transform .5s ease 0s;
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -500,6 +497,11 @@ a {
     padding: 20px;
     border-radius: 20px;
     position: relative;
+    transition: all 0.3s ease;
+}
+
+.creator-card:hover .creator-card__title {
+    color: var(--action-color);
 }
 
 .creator-card__image {
@@ -520,6 +522,7 @@ a {
     font-size: 22px;
     text-align: center;
     margin-bottom: 5px;
+    transition: color .5s ease 0s;
 }
 
 .creator-card__text {
@@ -531,7 +534,7 @@ a {
 .creator-card__price {
     font-family: var(--text__space-mono);
     font-weight: 400;
-    color: var(--text);
+    color: var(--text-color-white);
 }
 
 .creator-card__count {
@@ -603,7 +606,7 @@ a {
     padding: 20px 50px;
 }
 
-discover__header__link--mobile {
+.discover__header__link--mobile {
     display: none;
 }
 
@@ -625,12 +628,13 @@ discover__header__link--mobile {
 
 .highlight {
     height: 100vh;
-    background-image: url("./assets/img/highlight/highlight_background.png");
+    background-image: url("../assets/img/highlight/highlight_background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     display: flex;
+    background-attachment: fixed;
 }
 
 .highlight::after {
@@ -794,7 +798,7 @@ discover__header__link--mobile {
 .subscribe-form__btn {
     background-color: var(--action-color);
     border-radius: 20px;
-    color: #FFFFFF;
+    color: var(--text-color-white);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -840,7 +844,7 @@ discover__header__link--mobile {
     font-family: var(--text__space-mono);
     font-weight: 700;
     font-size: 22px;
-    color: #FFFFFF;
+    color: var(--text-color-white);
     margin-bottom: 30px;
 }
 
@@ -852,6 +856,14 @@ discover__header__link--mobile {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.footer__list-item {
+    transition: color .5s ease 0s;
+}
+
+.footer__list-item:hover {
+    color: var(--action-color);
 }
 
 .footer__top {
@@ -1262,39 +1274,45 @@ discover__header__link--mobile {
         display: flex;
         width: 315px;
     }
-    .works__list{
+
+    .works__list {
         grid-template-columns: 1fr;
     }
-    .works__list-item{
+
+    .works__list-item {
         flex-direction: row;
         padding: 20px;
         align-items: center;
     }
-    .works__img img{
+
+    .works__img img {
         max-width: 250px;
         max-height: 250px;
     }
-    .works__img{
+
+    .works__img {
         flex: 0 0 31.7%;
         height: unset;
         margin-bottom: 0;
     }
-    .subscribe__container{
+
+    .subscribe__container {
         flex-direction: column;
         align-items: center;
     }
 
-    .subscribe__img{
+    .subscribe__img {
         width: 100%;
         height: 100%;
     }
-    .subscribe .subscribe-form{
+
+    .subscribe .subscribe-form {
         max-width: unset;
     }
 }
 
 @media (max-width: 575px) {
-    .trend__cards{
+    .trend__cards {
         grid-template-columns: 1fr;
     }
 
